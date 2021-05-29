@@ -41,9 +41,10 @@ ignores = []
 acceptable_characters = []
 
 class Proyecto3():
-    def __init__(self, tokens, lines):
+    def __init__(self, tokens, lines, compiler):
         self.all_tokens = tokens
         self.lines = lines
+        self.compiler = compiler
         print('EXISTING TOKENS:', tokens)
         self.new_tokens = {}
         self.parser()        
@@ -61,7 +62,7 @@ class Proyecto3():
         # filee = open(archivo, 'r', encoding='utf-8', errors='replace')
         lines = self.lines
         w = ''.join(lines)
-        productions = sintaxis.Productions(lines)
+        productions = sintaxis.Productions(lines, self.compiler)
 
         # ------------------------- METODO DIRECTO ---------------------------------------------
 

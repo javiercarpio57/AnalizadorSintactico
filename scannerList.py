@@ -1,5 +1,5 @@
 import automata
-import proyecto3_final as pf
+import parserList as pf
 epsilon = 'ε'
 
 tokens = {

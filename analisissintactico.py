@@ -369,8 +369,8 @@ class AnalisisLexico():
 
 config_file = []
 
-# archivo = input('Ingrese el nombre del archivo ATG: ')
-archivo = 'atg/list.atg'
+archivo = input('Ingrese el nombre del archivo ATG: ')
+# archivo = 'atg/list.atg'
 
 with open(archivo, 'r') as reader:
     for line in reader:
@@ -392,7 +392,7 @@ for i in range(len(lines)):
         break
 
 contenido_productions = lines[i:-1]
-p3 = proy3.Proyecto3(list(analisislexico.tokens.keys()), contenido_productions)
+p3 = proy3.Proyecto3(list(analisislexico.tokens.keys()), contenido_productions, analisislexico.compiler)
 
 
 print()
@@ -410,7 +410,7 @@ for x, y in p3.new_tokens.items():
 
 
 programa_completo = '''import automata
-import proyecto3_final as pf
+import parser''' + analisislexico.compiler + ''' as pf
 epsilon = 'ε'
 
 tokens = {

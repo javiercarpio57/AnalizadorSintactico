@@ -1,33 +1,17 @@
 import automata
-import parserDouble as pf
+import parserMax as pf
 epsilon = 'ε'
 
 tokens = {
 "number":'˂0∪1∪2∪3∪4∪5∪6∪7∪8∪9˃˂˂0∪1∪2∪3∪4∪5∪6∪7∪8∪9˃˃Δ',
 "decnumber":'˂0∪1∪2∪3∪4∪5∪6∪7∪8∪9˃˂˂0∪1∪2∪3∪4∪5∪6∪7∪8∪9˃˃Δ˂.˃˂0∪1∪2∪3∪4∪5∪6∪7∪8∪9˃˂˂0∪1∪2∪3∪4∪5∪6∪7∪8∪9˃˃Δ',
-"white":'˂\n∪\r∪\t∪ ˃˂˂\n∪\r∪\t∪ ˃˃Δ',
-"nuevo1":';',
-"nuevo2":'.',
-"nuevo3":'+',
-"nuevo4":'-',
-"nuevo5":'*',
-"nuevo6":'/',
-"nuevo7":'(',
-"nuevo8":')',
+"nuevo1":',',
 }
 
 exceptions = {
-"number": {'while': 'while', 'do': 'do'},
+"number": {},
 "decnumber": {},
-"white": {},
 "nuevo1": {},
-"nuevo2": {},
-"nuevo3": {},
-"nuevo4": {},
-"nuevo5": {},
-"nuevo6": {},
-"nuevo7": {},
-"nuevo8": {},
 }
 
 ignores = []

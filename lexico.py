@@ -339,6 +339,7 @@ class SyntaxTree():
                 x = root[-1][:-2].rfind('\t')
                 root[-1] = root[-1][:-2][:x + 1] + right.Valor[1:-1] + ' = ' + root[-1][:-2][x + 1:] + '(' + right.Valor[1:-1] + ')'
                 # root[-1] = right.Valor[1:-1] + ' = ' + root[-1][:-2] + '(' + right.Valor[1:-1] + ')'
+
             return (root, first)
         
         elif not isinstance(left, tuple) and isinstance(right, tuple):
@@ -354,11 +355,10 @@ class SyntaxTree():
                 self.tabs += 1
                 first = self.calculate_first(left.Valor)
             elif left.Atributo == 'ident' and left.Valor not in self.firsts.keys():
-                root = ['\t' * self.tabs + 'if self.currentToken == "' + left.Valor + '":'] + root
-                root = ['\t' * self.tabs + '\tself.coincidir("' + left.Valor + '")'] + root
+                root = ['\t' * self.tabs + 'if self.currentToken == "' + left.Valor + '":']
+                root += ['\t' * self.tabs + '\tself.coincidir("' + left.Valor + '")'] + right[0]
+                first = [left.Valor]
                 self.tabs += 1
-            # elif left.Atributo == 'attr':
-            #     root = root[:-2] + '(' + left.Valor[1:-1] + ')'
             return (root, first)
 
     # Obtiene la precedencia entre dos operadores

@@ -1,8 +1,9 @@
 import lexico
 
 class Productions:
-    def __init__(self, f):
+    def __init__(self, f, compiler):
         print('\n__ init productions __\n')
+        self.compiler = compiler
         self.tokens = []
         self.noterminals = self.getNoTerminals(f)
         self.productions = []
@@ -154,7 +155,7 @@ class AnalisiSintactico():
 
         print(self.program)
 
-        f = open(f'proyecto3_final.py', 'w', encoding='utf-8')
+        f = open(f'parser{self.compiler}.py', 'w', encoding='utf-8')
         f.write(self.program)
         f.close()
 
